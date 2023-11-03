@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            Properties properties = new Properties()
+            // Load local.properties.
+            properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+            url properties.getProperty('pwsdk.maven.url')
+            credentials {
+                username properties.getProperty('pwsdk.maven.username')
+                password properties.getProperty('pwsdk.maven.password')
+            }
+        }
+    }
+}
+rootProject.name = "W3s Sample Wallet"
+include ':app'
