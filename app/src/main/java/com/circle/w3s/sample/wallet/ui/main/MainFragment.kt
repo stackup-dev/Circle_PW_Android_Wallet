@@ -37,6 +37,7 @@ import circle.programmablewallet.sdk.api.ApiError
 import circle.programmablewallet.sdk.api.ApiError.ErrorCode
 import circle.programmablewallet.sdk.api.Callback
 import circle.programmablewallet.sdk.api.ExecuteEvent
+import circle.programmablewallet.sdk.api.ExecuteWarning
 import circle.programmablewallet.sdk.presentation.EventListener
 import circle.programmablewallet.sdk.presentation.SecurityQuestion
 import circle.programmablewallet.sdk.result.ExecuteResult
@@ -263,6 +264,10 @@ class MainFragment : Fragment(), EventListener {
                         return true // App will handle next step, SDK will keep the Activity.
                     }
                     return false // App won't handle next step, SDK will finish the Activity.
+                }
+
+                override fun onWarning(p0: ExecuteWarning?, p1: ExecuteResult?): Boolean {
+                    TODO("Not yet implemented")
                 }
 
                 override fun onResult(result: ExecuteResult) {
